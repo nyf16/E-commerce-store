@@ -2,6 +2,7 @@
 using ECommerceStore.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +18,16 @@ namespace ECommerceStore.Application.Products
             _context = context;
         }
 
-        public void Do(int id, string Name, string Description)
+        public async Task Do(string Name, string Description, decimal Value)
         {
             _context.Products.Add(new Product
             {
-                Id = id,
                 Name = Name,
-                Description = Description
+                Description = Description,
+                Value = Value
             });
+
+            await _context.SaveChangesAsync();
         }
     }
 }
