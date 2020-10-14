@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerceStore.Application.Products
+namespace ECommerceStore.Application.CreateProducts
 {
     public class CreateProduct
     {

@@ -1,25 +1,18 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using ECommerceStore.Application.Products;
+using ECommerceStore.Application.CreateProducts;
+using ECommerceStore.Application.GetProducts;
 using ECommerceStore.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using static ECommerceStore.Application.Products.CreateProduct;
 
 namespace ECommerceStore.UI.Pages
 {
     public class IndexModel : PageModel
     {
-        //private readonly ILogger<IndexModel> _logger;
         private ApplicationDbContext _ctx;
 
-        //public IndexModel(ILogger<IndexModel> logger)
-        //{
-        //    _logger = logger;
-        //}
 
         public IndexModel(ApplicationDbContext ctx)
         {
@@ -27,18 +20,19 @@ namespace ECommerceStore.UI.Pages
         }
 
         [BindProperty]
-        public ProductViewModel Product { get; set; }
+        public Application.CreateProducts.CreateProduct.ProductViewModel Product { get; set; }
 
-
+        public IEnumerable<Application.GetProducts.ProductViewModel> Products { get; set; }
 
         public void OnGet()
         {
-
+            Products = new GetProducts(_ctx).Do();
         }
 
         public async Task<IActionResult> OnPost()
         {
             await new CreateProduct(_ctx).Do(Product);
+
             return RedirectToPage("Index");
         }
     }
