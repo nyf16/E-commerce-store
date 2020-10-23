@@ -9,23 +9,17 @@ using System.Threading.Tasks;
 
 namespace ECommerceStore.Application.CreateProducts
 {
-    public class CreateProduct
+    public class UpdateProduct
     {
         private ApplicationDbContext _context;
 
-        public CreateProduct(ApplicationDbContext context)
+        public UpdateProduct(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public async Task Do(ProductViewModel model)
-        {
-            _context.Products.Add(new Product
-            {
-                Name = model.Name,
-                Description = model.Description,
-                Value = model.Value
-            });
+        {            
 
             await _context.SaveChangesAsync();
         }
