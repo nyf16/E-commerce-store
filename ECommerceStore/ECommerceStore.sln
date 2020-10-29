@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceStore.Domain", "EC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceStore.Application", "ECommerceStore.Application\ECommerceStore.Application.csproj", "{A96C4E7F-91CC-44EA-AB07-C51DD068AEBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceStore.Database", "ECommerceStore.Database\ECommerceStore.Database.csproj", "{F03C727A-A35C-4C8F-BA82-215EF1DA9BC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceStore.Database", "ECommerceStore.Database\ECommerceStore.Database.csproj", "{F03C727A-A35C-4C8F-BA82-215EF1DA9BC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

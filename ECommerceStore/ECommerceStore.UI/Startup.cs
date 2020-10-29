@@ -27,7 +27,8 @@ namespace ECommerceStore.UI
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
 
-            services.AddRazorPages();
+            services.AddRazorPages().
+                AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
