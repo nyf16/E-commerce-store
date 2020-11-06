@@ -27,6 +27,9 @@ namespace ECommerceStore.UI
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
 
+            services.AddControllersWithViews().
+                AddNewtonsoftJson();
+
             services.AddRazorPages().
                 AddRazorRuntimeCompilation();
         }
@@ -55,6 +58,7 @@ namespace ECommerceStore.UI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
