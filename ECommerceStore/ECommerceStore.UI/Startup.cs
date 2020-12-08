@@ -25,13 +25,15 @@ namespace ECommerceStore.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
 
-            services.AddControllersWithViews().
-                AddNewtonsoftJson();
+            //fixed 404 error
+            services.AddControllersWithViews();
 
             services.AddRazorPages().
                 AddRazorRuntimeCompilation();
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));           
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,8 +59,8 @@ namespace ECommerceStore.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }
