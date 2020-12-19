@@ -40,7 +40,7 @@
             this.loading = true;
             axios.get('/Admin/products')
                 .then(res => {
-                    console.log(res);
+                    console.log(res.data);
                     this.products = res.data;
                 })
                 .catch(err => {
@@ -85,7 +85,7 @@
             axios.delete('/Admin/products/' + id)
                 .then(res => {
                     console.log(res);
-                    this.products.splice(index, 1);
+                    this.products.splice(index, 1)
                 })
                 .catch(err => {
                     console.log(err);
